@@ -551,7 +551,7 @@ export const EmailStudio: React.FC<EmailStudioProps> = ({ apiKeys, settings, onO
                         Architecture Video: Distributed Edge Queue Telemetry (12:40)
                       </div>
                       <p className="text-[11px] text-slate-400 max-w-md mx-auto">
-                        Inboxes do not support inline HTML5 video tags. HiveOS automatically serves this optimized click-to-play image card linking to your web post.
+                        Inboxes do not support inline HTML5 video tags. WeeHivv automatically serves this optimized click-to-play image card linking to your web post.
                       </p>
                       <button 
                         onClick={() => setViewEnvironment('web')}

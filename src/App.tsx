@@ -254,7 +254,7 @@ export function App() {
       <footer className="border-t border-[#161720] bg-[#07080a] py-6 text-xs text-slate-500 font-mono">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-3">
-            <span className="font-bold text-white">HiveOS</span>
+            <span className="font-bold text-white">WeeHivv</span>
             <span className="text-slate-600">/</span>
             <span>Open Source Sovereign Newsletter Infrastructure</span>
           </div>

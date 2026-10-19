@@ -104,12 +104,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="flex items-center space-x-2.5 focus:outline-none text-left"
             >
               <div className="w-8 h-8 rounded-lg bg-[#ff5a36] flex items-center justify-center font-black text-white text-sm shadow-md shadow-orange-500/20">
-                B
+                W
               </div>
               <div>
                 <div className="flex items-center space-x-1.5">
                   <span className="text-base font-extrabold tracking-tight text-white font-sans">
-                    HiveOS
+                    WeeHivv
                   </span>
                   <span className="text-[10px] font-mono px-1.5 py-0.2 bg-[#1d1f2b] text-slate-300 rounded border border-[#2c2f42]">
                     OSS

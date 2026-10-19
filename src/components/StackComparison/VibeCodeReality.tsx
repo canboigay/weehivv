@@ -36,7 +36,7 @@ export const VibeCodeReality: React.FC = () => {
           The Hidden Cost of Stitched Infrastructure
         </h2>
         <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
-          Stitching 13 separate SaaS tools (SendGrid, Supabase, Inngest, ZeroBounce, Litmus, Omnivery, Datadog) introduces recurring subscription costs and significant engineering maintenance. HiveOS bundles this functionality into a single self-hostable edge application.
+          Stitching 13 separate SaaS tools (SendGrid, Supabase, Inngest, ZeroBounce, Litmus, Omnivery, Datadog) introduces recurring subscription costs and significant engineering maintenance. WeeHivv bundles this functionality into a single self-hostable edge application.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export const VibeCodeReality: React.FC = () => {
 
         <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl">
           <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
-            HiveOS BYOK (Self-Hosted)
+            WeeHivv BYOK (Self-Hosted)
           </div>
           <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">
             $0
@@ -185,7 +185,7 @@ export const VibeCodeReality: React.FC = () => {
         <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl space-y-3">
           <div className="flex items-center space-x-2 text-xs font-bold text-white uppercase">
             <CheckCircle className="w-4 h-4 text-emerald-400" />
-            <span>HiveOS Unified Sovereign Model</span>
+            <span>WeeHivv Unified Sovereign Model</span>
           </div>
           <div className="text-xs text-slate-300 space-y-2">
             <p>• Single open-source codebase deployable on Cloudflare Pages in 1 click.</p>

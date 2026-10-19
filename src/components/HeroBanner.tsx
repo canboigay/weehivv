@@ -41,7 +41,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           High-deliverability newsletters without SaaS vendor lock-in.
         </h1>
         <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-          HiveOS gives you the complete deliverability engine — Microsoft Word-safe Outlook VML compilation, RFC 8058 one-click headers, 3-tier suppression, and live DNS-over-HTTPS audits. Plug in your own Resend or SendGrid key and send for free.
+          WeeHivv gives you the complete deliverability engine — Microsoft Word-safe Outlook VML compilation, RFC 8058 one-click headers, 3-tier suppression, and live DNS-over-HTTPS audits. Plug in your own Resend or SendGrid key and send for free.
         </p>
       </div>
 
@@ -64,7 +64,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
         </button>
 
         <a
-          href="https://github.com/canboigay/hiveos"
+          href="https://github.com/canboigay/weehivv"
           target="_blank"
           rel="noreferrer"
           className="px-4 py-2.5 rounded-xl font-medium text-slate-400 hover:text-white border border-transparent hover:border-[#232532] flex items-center space-x-1.5 transition-colors"

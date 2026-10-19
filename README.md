@@ -1,4 +1,4 @@
-# HiveOS
+# WeeHivv
 
 **Open-source sovereign newsletter infrastructure with BYOK (Bring Your Own Key) dispatch, Outlook VML compilation, RFC 8058 compliance, and real-time DNS telemetry.**
 
@@ -8,9 +8,9 @@ Live Deployment: [https://beehiiv-platform.pages.dev](https://beehiiv-platform.p
 
 ## Overview
 
-HiveOS is a production-grade, self-hostable open-source alternative to proprietary newsletter platforms. It provides the deliverability, rendering safety, and audience tools of platforms like Beehiiv while eliminating ongoing SaaS vendor lock-in through client-side encryption and a Bring Your Own Key (BYOK) architecture.
+WeeHivv is a production-grade, self-hostable open-source alternative to proprietary newsletter platforms. It provides the deliverability, rendering safety, and audience tools of platforms like Beehiiv while eliminating ongoing SaaS vendor lock-in through client-side encryption and a Bring Your Own Key (BYOK) architecture.
 
-Anyone can deploy HiveOS to Cloudflare Pages for free and connect their own Resend, SendGrid, Postmark, Groq, or OpenAI keys.
+Anyone can deploy WeeHivv to Cloudflare Pages for free and connect their own Resend, SendGrid, Postmark, Groq, or OpenAI keys.
 
 ---
 
@@ -34,8 +34,8 @@ Anyone can deploy HiveOS to Cloudflare Pages for free and connect their own Rese
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/canboigay/hiveos.git
-cd hiveos
+git clone https://github.com/canboigay/weehivv.git
+cd weehivv
 bun install # or npm install / pnpm install
 ```
 
@@ -49,7 +49,7 @@ bun run dev
 
 ```bash
 bun run build
-npx wrangler pages deploy dist --project-name hiveos
+npx wrangler pages deploy dist --project-name weehivv
 ```
 
 ---
