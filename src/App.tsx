@@ -119,6 +119,7 @@ export function App() {
           <HeroBanner 
             onOpenSettings={() => setIsSettingsOpen(true)}
             onOpenStudio={() => setActiveTab('studio')}
+            onNavigateTab={setActiveTab}
             settings={settings}
             apiKeys={apiKeys}
           />

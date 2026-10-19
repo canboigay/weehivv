@@ -2,14 +2,9 @@ import React, { useState } from 'react';
 import { 
   Layers, 
   DollarSign, 
-  Clock, 
-  AlertTriangle, 
   CheckCircle, 
-  ExternalLink, 
-  HelpCircle,
-  Shield,
-  Zap,
-  TrendingDown
+  AlertTriangle,
+  ArrowRight
 } from 'lucide-react';
 import { VIBE_CODED_STACK_ITEMS } from '../../data/mockData';
 
@@ -21,8 +16,8 @@ export const VibeCodeReality: React.FC = () => {
   const totalSaaSCost = items.reduce((acc, item) => acc + item.monthlyCost, 0);
   const totalEngineerCost = engineerHourlyRate * maintenanceHoursMonthly;
   const grandTotalMonthly = totalSaaSCost + totalEngineerCost;
-  const beehiivMonthly = 99;
-  const annualSavings = (grandTotalMonthly - beehiivMonthly) * 12;
+  const hiveOsCost = 0; // Self-hosted BYOK
+  const annualSavings = (grandTotalMonthly - hiveOsCost) * 12;
 
   const handleUpdateCost = (index: number, newCost: number) => {
     const updated = [...items];
@@ -31,102 +26,93 @@ export const VibeCodeReality: React.FC = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {/* Header Banner */}
-      <div className="bg-gradient-to-r from-[#1b1219] via-[#161421] to-[#11121a] border border-pink-500/30 p-6 sm:p-8 rounded-2xl relative overflow-hidden">
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-bold">
-            <Layers className="w-3.5 h-3.5" />
-            <span>The Reality Check: Vibe-Coding vs Production Infrastructure</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            The Hidden <span className="text-pink-400">$34,000+/year</span> "Stitched-SaaS" Tax
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            Anyone can prompt an AI to create a signup form and an API route. But maintaining 14 separate third-party subscriptions, handling webhook failures, updating DNS records, and keeping up with Litmus Outlook test matrices quickly becomes a full-time engineering headache.
-          </p>
+      <div className="border border-[#1e2029] bg-[#0e0f14] p-6 rounded-2xl space-y-2">
+        <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+          Economic Architecture Model
         </div>
+        <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
+          The Hidden Cost of Stitched Infrastructure
+        </h2>
+        <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
+          Stitching 13 separate SaaS tools (SendGrid, Supabase, Inngest, ZeroBounce, Litmus, Omnivery, Datadog) introduces recurring subscription costs and significant engineering maintenance. HiveOS bundles this functionality into a single self-hostable edge application.
+        </p>
       </div>
 
-      {/* Comparison Metrics Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {/* Metric 1 */}
-        <div className="bg-[#14151d] border border-red-500/30 p-5 rounded-2xl relative">
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
-            Stitched DIY Stack (Monthly)
+      {/* 3 Metric Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl">
+          <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+            DIY Stitched Stack (Monthly)
           </div>
-          <div className="text-3xl font-extrabold text-red-400 font-mono">
+          <div className="text-2xl sm:text-3xl font-extrabold text-white font-mono">
             ${grandTotalMonthly.toLocaleString()}
             <span className="text-xs text-slate-400 font-sans font-normal ml-1">/ month</span>
           </div>
           <div className="mt-2 text-xs text-slate-400 space-y-0.5">
-            <div>• SaaS Subscriptions: <strong>${totalSaaSCost.toLocaleString()}</strong></div>
-            <div>• Maintenance ({maintenanceHoursMonthly}h @ ${engineerHourlyRate}/h): <strong>${totalEngineerCost.toLocaleString()}</strong></div>
+            <div>• SaaS Subscriptions: ${totalSaaSCost.toLocaleString()}</div>
+            <div>• Dev Time ({maintenanceHoursMonthly}h @ ${engineerHourlyRate}/h): ${totalEngineerCost.toLocaleString()}</div>
           </div>
         </div>
 
-        {/* Metric 2 */}
-        <div className="bg-[#14151d] border border-emerald-500/30 p-5 rounded-2xl relative">
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
-            Beehiiv All-in-One Engine
+        <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl">
+          <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+            HiveOS BYOK (Self-Hosted)
           </div>
-          <div className="text-3xl font-extrabold text-emerald-400 font-mono">
-            ${beehiivMonthly}
+          <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">
+            $0
             <span className="text-xs text-slate-400 font-sans font-normal ml-1">/ month</span>
           </div>
           <div className="mt-2 text-xs text-slate-400 space-y-0.5">
-            <div>• All 14 services natively integrated</div>
-            <div>• Zero maintenance hours & zero glue-code</div>
+            <div>• Zero platform subscription fees</div>
+            <div>• Cloudflare Pages free global edge hosting</div>
           </div>
         </div>
 
-        {/* Metric 3 */}
-        <div className="bg-[#14151d] border border-orange-500/30 p-5 rounded-2xl relative">
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
-            Estimated Annual Savings
+        <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl">
+          <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider mb-1">
+            Annual Cost Avoidance
           </div>
-          <div className="text-3xl font-extrabold text-orange-400 font-mono">
+          <div className="text-2xl sm:text-3xl font-extrabold text-orange-400 font-mono">
             ${annualSavings.toLocaleString()}
             <span className="text-xs text-slate-400 font-sans font-normal ml-1">/ year</span>
           </div>
           <div className="mt-2 text-xs text-slate-400">
-            <span className="text-emerald-400 font-bold">96.5% cost reduction</span> + immediate time-to-market.
+            Immediate ROI with zero vendor lock-in.
           </div>
         </div>
       </div>
 
-      {/* Interactive 14-Service Breakdown Table */}
-      <div className="bg-[#14151d] border border-[#232431] p-6 rounded-2xl space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      {/* 13-Service Breakdown Table */}
+      <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#181a22]">
           <div>
-            <h3 className="text-base font-bold text-white flex items-center space-x-2">
-              <span>Tyler Denk's 14-Service Backlog Audit</span>
-              <span className="text-[10px] bg-white/10 text-slate-300 px-2 py-0.5 rounded font-mono">
-                14 / 14 Cataloged
-              </span>
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
+              Component Cost Breakdown
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
-              Adjust any monthly cost below to model your custom DIY stack economics.
+              Edit any estimated monthly cost below to model your infrastructure requirements.
             </p>
           </div>
 
-          <div className="flex items-center space-x-4 text-xs text-slate-400">
+          <div className="flex items-center space-x-3 text-xs text-slate-400 font-mono">
             <div className="flex items-center space-x-1.5">
-              <span>Hourly Dev Rate:</span>
+              <span>Dev Rate ($/h):</span>
               <input
                 type="number"
                 value={engineerHourlyRate}
                 onChange={(e) => setEngineerHourlyRate(parseInt(e.target.value) || 0)}
-                className="w-16 bg-[#1a1b24] border border-[#2a2c3a] rounded px-2 py-1 text-white font-mono text-xs"
+                className="w-16 bg-[#14151d] border border-[#232532] rounded px-2 py-1 text-white text-xs"
               />
             </div>
             <div className="flex items-center space-x-1.5">
-              <span>Monthly Dev Hours:</span>
+              <span>Hours/Mo:</span>
               <input
                 type="number"
                 value={maintenanceHoursMonthly}
                 onChange={(e) => setMaintenanceHoursMonthly(parseInt(e.target.value) || 0)}
-                className="w-14 bg-[#1a1b24] border border-[#2a2c3a] rounded px-2 py-1 text-white font-mono text-xs"
+                className="w-14 bg-[#14151d] border border-[#232532] rounded px-2 py-1 text-white text-xs"
               />
             </div>
           </div>
@@ -134,24 +120,24 @@ export const VibeCodeReality: React.FC = () => {
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs text-slate-300">
-            <thead className="bg-[#181923] text-slate-400 uppercase text-[10px] tracking-wider border-b border-[#262837]">
+            <thead className="bg-[#121319] text-slate-400 uppercase text-[10px] tracking-wider border-b border-[#1e2029]">
               <tr>
-                <th className="py-2.5 px-3">Service Category</th>
-                <th className="py-2.5 px-3">Substituted Software / SaaS</th>
-                <th className="py-2.5 px-3">Architectural Role & Hidden Complexity</th>
-                <th className="py-2.5 px-3 text-right">Est. Monthly Cost</th>
+                <th className="py-2.5 px-3">Category</th>
+                <th className="py-2.5 px-3">SaaS Service</th>
+                <th className="py-2.5 px-3">Role in Stack</th>
+                <th className="py-2.5 px-3 text-right">Monthly Cost</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#20222e]">
+            <tbody className="divide-y divide-[#171822]">
               {items.map((item, idx) => (
-                <tr key={idx} className="hover:bg-[#181923]/60 transition-colors">
-                  <td className="py-2.5 px-3 font-bold text-white whitespace-nowrap">
+                <tr key={idx} className="hover:bg-[#121319]/60 transition-colors">
+                  <td className="py-2.5 px-3 font-semibold text-white whitespace-nowrap">
                     {item.category}
                   </td>
-                  <td className="py-2.5 px-3 text-orange-400 font-mono">
+                  <td className="py-2.5 px-3 text-slate-300 font-mono text-[11px]">
                     {item.service}
                   </td>
-                  <td className="py-2.5 px-3 text-slate-400 text-[11px] max-w-md">
+                  <td className="py-2.5 px-3 text-slate-400 text-[11px] max-w-sm">
                     {item.notes}
                   </td>
                   <td className="py-2.5 px-3 text-right font-mono">
@@ -161,19 +147,19 @@ export const VibeCodeReality: React.FC = () => {
                         type="number"
                         value={item.monthlyCost}
                         onChange={(e) => handleUpdateCost(idx, parseInt(e.target.value))}
-                        className="w-20 text-right bg-[#0d0e13] border border-[#252737] rounded px-2 py-0.5 text-white font-mono text-xs focus:border-orange-500 focus:outline-none"
+                        className="w-20 text-right bg-[#0a0b0e] border border-[#20222e] rounded px-2 py-0.5 text-white font-mono text-xs focus:border-orange-500 focus:outline-none"
                       />
                     </div>
                   </td>
                 </tr>
               ))}
             </tbody>
-            <tfoot className="border-t border-[#2c2d3d] bg-[#171822] font-bold text-xs">
+            <tfoot className="border-t border-[#1e2029] bg-[#121319] font-bold text-xs">
               <tr>
                 <td colSpan={3} className="py-3 px-3 text-right uppercase text-slate-400">
                   Total Monthly SaaS Fees:
                 </td>
-                <td className="py-3 px-3 text-right text-red-400 font-mono text-sm">
+                <td className="py-3 px-3 text-right text-white font-mono text-sm">
                   ${totalSaaSCost.toLocaleString()} / mo
                 </td>
               </tr>
@@ -182,43 +168,29 @@ export const VibeCodeReality: React.FC = () => {
         </div>
       </div>
 
-      {/* Architectural Topology Comparison */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Fragile Vibe Coded Stack */}
-        <div className="bg-[#14151d] border border-red-500/30 p-6 rounded-2xl space-y-4">
-          <div className="flex items-center space-x-2">
-            <AlertTriangle className="w-5 h-5 text-red-400" />
-            <h3 className="text-sm font-bold text-white">Fragile Stitched DIY Architecture</h3>
+      {/* Comparison Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl space-y-3">
+          <div className="flex items-center space-x-2 text-xs font-bold text-slate-300 uppercase">
+            <AlertTriangle className="w-4 h-4 text-slate-400" />
+            <span>Fragile Stitched SaaS Architecture</span>
           </div>
-          <div className="space-y-2 text-xs text-slate-300">
-            <div className="p-3 bg-[#191a24] rounded-xl border border-red-500/20">
-              <strong className="text-red-300">14 Isolated Vendor Silos:</strong> Webhook retries fail silently between Stripe, Supabase, SendGrid, and Inngest.
-            </div>
-            <div className="p-3 bg-[#191a24] rounded-xl border border-red-500/20">
-              <strong className="text-red-300">Manual IP Reputation Management:</strong> You are on the hook if Barracuda or Spamhaus flags your IP pool on a Friday evening.
-            </div>
-            <div className="p-3 bg-[#191a24] rounded-xl border border-red-500/20">
-              <strong className="text-red-300">Distorted Metrics:</strong> Without Omnivery bot filtering, corporate security scanners will falsely inflate your click reports.
-            </div>
+          <div className="text-xs text-slate-400 space-y-2">
+            <p>• 13 separate billing cycles, accounts, and API version migrations.</p>
+            <p>• Webhook delivery failures cause desynchronized subscriber and suppression states.</p>
+            <p>• Corporate bot clicks falsely inflate analytics without specialized scrubbing.</p>
           </div>
         </div>
 
-        {/* Unified Beehiiv Engine */}
-        <div className="bg-[#14151d] border border-emerald-500/30 p-6 rounded-2xl space-y-4">
-          <div className="flex items-center space-x-2">
-            <CheckCircle className="w-5 h-5 text-emerald-400" />
-            <h3 className="text-sm font-bold text-white">Unified Beehiiv Enterprise Engine</h3>
+        <div className="bg-[#0e0f14] border border-[#1e2029] p-5 rounded-xl space-y-3">
+          <div className="flex items-center space-x-2 text-xs font-bold text-white uppercase">
+            <CheckCircle className="w-4 h-4 text-emerald-400" />
+            <span>HiveOS Unified Sovereign Model</span>
           </div>
-          <div className="space-y-2 text-xs text-slate-300">
-            <div className="p-3 bg-[#191a24] rounded-xl border border-emerald-500/20">
-              <strong className="text-emerald-300">Single Source of Truth:</strong> One unified database for subscribers, campaigns, dynamic sections, and suppression tiers.
-            </div>
-            <div className="p-3 bg-[#191a24] rounded-xl border border-emerald-500/20">
-              <strong className="text-emerald-300">Autonomous 24/7 Sentinels:</strong> Instant circuit-breaker rotates flagged IPs within 500ms without human intervention.
-            </div>
-            <div className="p-3 bg-[#191a24] rounded-xl border border-emerald-500/20">
-              <strong className="text-emerald-300">Litmus-Grade Email Compiler:</strong> Automatic MSO/VML generation ensures bulletproof layout in Outlook 2016-2024.
-            </div>
+          <div className="text-xs text-slate-300 space-y-2">
+            <p>• Single open-source codebase deployable on Cloudflare Pages in 1 click.</p>
+            <p>• Local client encryption: API keys and subscriber records stay in your control.</p>
+            <p>• Native Outlook VML compiler and live DoH DNS validation out-of-the-box.</p>
           </div>
         </div>
       </div>

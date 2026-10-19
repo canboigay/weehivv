@@ -1,10 +1,11 @@
 import React from 'react';
-import { ShieldCheck, Zap, ArrowRight, Key, Github, Terminal } from 'lucide-react';
-import { PublicationSettings, ApiKeys } from '../types';
+import { ArrowRight, Key, Github, Sparkles, ShieldCheck, Send } from 'lucide-react';
+import { PublicationSettings, ApiKeys, TabType } from '../types';
 
 interface HeroBannerProps {
   onOpenSettings: () => void;
   onOpenStudio: () => void;
+  onNavigateTab: (tab: TabType) => void;
   settings: PublicationSettings;
   apiKeys: ApiKeys;
 }
@@ -12,6 +13,7 @@ interface HeroBannerProps {
 export const HeroBanner: React.FC<HeroBannerProps> = ({ 
   onOpenSettings, 
   onOpenStudio, 
+  onNavigateTab,
   settings, 
   apiKeys 
 }) => {
@@ -21,80 +23,112 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
   );
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[#1f212c] bg-gradient-to-b from-[#12131a] to-[#0c0d12] p-6 sm:p-8 mb-8 shadow-xl">
-      <div className="relative z-10 max-w-4xl space-y-4">
-        
-        {/* Badge */}
-        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#1b1c28] border border-[#2b2d3d] text-slate-300 text-xs font-mono">
+    <div className="border border-[#1e2029] bg-[#0d0e12] rounded-2xl p-6 sm:p-8 mb-8 space-y-6">
+      {/* Top Meta Tag */}
+      <div className="flex items-center justify-between text-xs font-mono text-slate-400 pb-4 border-b border-[#181a22]">
+        <div className="flex items-center space-x-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400" />
-          <span>Sovereign Open Source Architecture</span>
-          <span className="text-slate-500">•</span>
-          <span>Zero SaaS Subscriptions Required</span>
+          <span className="text-slate-300 font-medium">Sovereign Newsletter Infrastructure</span>
         </div>
+        <div className="text-slate-500 hidden sm:block">
+          Open-Source Alternative to Beehiiv
+        </div>
+      </div>
 
-        {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-          Production newsletter infrastructure with Outlook VML, RFC 8058 compliance, and BYOK dispatch.
+      {/* Main Pitch */}
+      <div className="max-w-3xl space-y-3">
+        <h1 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          High-deliverability newsletters without SaaS vendor lock-in.
         </h1>
-
-        {/* Subtitle */}
-        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-3xl font-normal">
-          Designed as an open-source alternative to proprietary newsletter platforms. Manage subscriber lifecycles, preview live merge tags across simulated personas, compile Microsoft Word-compliant email HTML, and send via your own Resend or SendGrid credentials for free.
+        <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          HiveOS gives you the complete deliverability engine — Microsoft Word-safe Outlook VML compilation, RFC 8058 one-click headers, 3-tier suppression, and live DNS-over-HTTPS audits. Plug in your own Resend or SendGrid key and send for free.
         </p>
+      </div>
 
-        {/* Action Buttons */}
-        <div className="pt-2 flex flex-wrap gap-3 text-xs">
-          <button
-            onClick={onOpenStudio}
-            className="px-4 py-2.5 rounded-xl font-bold bg-[#ff5a36] hover:bg-[#e04622] text-white flex items-center space-x-2 transition-all shadow-md shadow-orange-500/20"
-          >
-            <span>Open Email & Post Studio</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </button>
+      {/* CTAs */}
+      <div className="flex flex-wrap items-center gap-3 text-xs pt-1">
+        <button
+          onClick={onOpenStudio}
+          className="px-4 py-2.5 rounded-xl font-semibold bg-[#ff5a36] hover:bg-[#e04622] text-white flex items-center space-x-2 transition-colors shadow-sm"
+        >
+          <span>Open Email Studio</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
 
-          <button
-            onClick={onOpenSettings}
-            className={`px-4 py-2.5 rounded-xl font-semibold border flex items-center space-x-2 transition-all ${
-              hasLiveEmailKey
-                ? 'bg-[#181a24] text-emerald-300 border-emerald-500/30'
-                : 'bg-[#181a24] text-slate-200 border-[#2a2c3a] hover:bg-[#202230]'
-            }`}
-          >
-            <Key className="w-3.5 h-3.5 text-orange-400" />
-            <span>{hasLiveEmailKey ? 'Configure Active Keys' : 'Plug Your Own API Keys (BYOK)'}</span>
-          </button>
+        <button
+          onClick={onOpenSettings}
+          className="px-4 py-2.5 rounded-xl font-medium bg-[#14151c] hover:bg-[#1a1b24] text-slate-200 border border-[#232532] flex items-center space-x-2 transition-colors"
+        >
+          <Key className="w-3.5 h-3.5 text-slate-400" />
+          <span>{hasLiveEmailKey ? 'Manage API Keys' : 'Plug Your Own Keys (BYOK)'}</span>
+        </button>
 
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 py-2.5 rounded-xl font-semibold bg-[#12131a] hover:bg-[#1a1b24] text-slate-400 hover:text-white border border-[#232431] flex items-center space-x-1.5 transition-colors"
-          >
-            <Github className="w-3.5 h-3.5" />
-            <span>Deploy on Cloudflare Pages</span>
-          </a>
+        <a
+          href="https://github.com/canboigay/hiveos"
+          target="_blank"
+          rel="noreferrer"
+          className="px-4 py-2.5 rounded-xl font-medium text-slate-400 hover:text-white border border-transparent hover:border-[#232532] flex items-center space-x-1.5 transition-colors"
+        >
+          <Github className="w-3.5 h-3.5" />
+          <span>Source Code</span>
+        </a>
+      </div>
+
+      {/* Simple 3-Step Pathing Workflow */}
+      <div className="pt-4 border-t border-[#181a22]">
+        <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-3">
+          Platform Pipeline & Navigation
         </div>
 
-        {/* Technical specs strip */}
-        <div className="pt-4 border-t border-[#1c1e28] grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono text-slate-400">
-          <div>
-            <span className="block text-slate-500 text-[10px] uppercase">Engine</span>
-            <span className="text-white font-medium">Vite + React + Edge</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {/* Step 1 */}
+          <div 
+            onClick={() => onNavigateTab('studio')}
+            className="p-3.5 bg-[#121319] hover:bg-[#161720] border border-[#1e2029] hover:border-[#2f3242] rounded-xl cursor-pointer transition-all group"
+          >
+            <div className="flex items-center space-x-2 text-xs font-bold text-white mb-1">
+              <span className="w-5 h-5 rounded-md bg-[#1a1c25] border border-[#262836] flex items-center justify-center text-[10px] font-mono text-orange-400">
+                1
+              </span>
+              <span className="group-hover:text-orange-400 transition-colors">Compose & Compile</span>
+            </div>
+            <p className="text-[11px] text-slate-400 leading-normal">
+              Markdown editor, simulated subscriber merge tags, and automatic Outlook VML table compilation.
+            </p>
           </div>
-          <div>
-            <span className="block text-slate-500 text-[10px] uppercase">Outlook Safety</span>
-            <span className="text-white font-medium">MSO VML Table Compiler</span>
+
+          {/* Step 2 */}
+          <div 
+            onClick={() => onNavigateTab('deliverability')}
+            className="p-3.5 bg-[#121319] hover:bg-[#161720] border border-[#1e2029] hover:border-[#2f3242] rounded-xl cursor-pointer transition-all group"
+          >
+            <div className="flex items-center space-x-2 text-xs font-bold text-white mb-1">
+              <span className="w-5 h-5 rounded-md bg-[#1a1c25] border border-[#262836] flex items-center justify-center text-[10px] font-mono text-cyan-400">
+                2
+              </span>
+              <span className="group-hover:text-cyan-400 transition-colors">Audit & Sanitize</span>
+            </div>
+            <p className="text-[11px] text-slate-400 leading-normal">
+              Live Cloudflare DoH check for SPF/DMARC, disposable email blockers, and 3-layer suppression.
+            </p>
           </div>
-          <div>
-            <span className="block text-slate-500 text-[10px] uppercase">DNS Telemetry</span>
-            <span className="text-white font-medium">Cloudflare 1.1.1.1 DoH</span>
-          </div>
-          <div>
-            <span className="block text-slate-500 text-[10px] uppercase">Data Privacy</span>
-            <span className="text-white font-medium">Client Encrypted Storage</span>
+
+          {/* Step 3 */}
+          <div 
+            onClick={() => onNavigateTab('subscribers')}
+            className="p-3.5 bg-[#121319] hover:bg-[#161720] border border-[#1e2029] hover:border-[#2f3242] rounded-xl cursor-pointer transition-all group"
+          >
+            <div className="flex items-center space-x-2 text-xs font-bold text-white mb-1">
+              <span className="w-5 h-5 rounded-md bg-[#1a1c25] border border-[#262836] flex items-center justify-center text-[10px] font-mono text-emerald-400">
+                3
+              </span>
+              <span className="group-hover:text-emerald-400 transition-colors">Audience & Dispatch</span>
+            </div>
+            <p className="text-[11px] text-slate-400 leading-normal">
+              CSV import/export, 360° subscriber engagement history, and corporate scanner bot click filtering.
+            </p>
           </div>
         </div>
-
       </div>
     </div>
   );
